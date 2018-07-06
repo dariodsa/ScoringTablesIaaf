@@ -2,6 +2,13 @@ package hr.fer.akmaksimir.model;
 
 import java.util.List;
 
+/**
+ * Class Competition encapsulate competition entity which 
+ * contains {@link #id}, {@link #name} and {@link #results list of results}. Those attributes are
+ * private and user can modify and read them using regular get set methods. 
+ * @author dario
+ *
+ */
 public class Competition {
     
     /**

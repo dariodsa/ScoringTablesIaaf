@@ -1,18 +1,45 @@
 package hr.fer.akmaksimir.model.scoresystem.structures;
 
+/**
+ * Class Pair implements {@link Comparable} and it compares with each other
+ * looking at the result property. It encapsulate pair of a accomplished result and 
+ * it's number of points according to the IAAF rules.
+ * @author dario
+ *
+ */
 public class Pair implements Comparable<Pair> {
+    
+    /**
+     * result
+     */
     private double result;
+    /**
+     * point by the IAAF
+     */
     private long points;
     
+    /**
+     * Constructs Pair with the given parameters.
+     * @param result result
+     * @param points number of points for the given result
+     */
     public Pair(double result, long points) {
         this.result = result;
         this.points = points;
     }
-
+    
+    /**
+     * Returns the result.
+     * @return result, double value
+     */
     public double getResult() {
         return result;
     }
 
+    /**
+     * Returns the number of points.
+     * @return number of points
+     */
     public long getPoints() {
         return points;
     }

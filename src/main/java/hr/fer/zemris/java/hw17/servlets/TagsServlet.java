@@ -19,7 +19,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import hr.fer.akmaksimir.model.enumerations.Picture;
-import hr.fer.akmaksimir.model.enumerations.Tag;
 
 /**
  * Class {@link TagsServlet} returns the list of tags in the given text file.

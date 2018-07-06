@@ -1,7 +1,6 @@
 package hr.fer.akmaksimir.model.scoresystem;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -21,75 +20,82 @@ import hr.fer.akmaksimir.model.scoresystem.structures.ResultInformation;
 
 public class ScoringSystem2017 implements ScoringSystem {
 
+    /**
+     * main path to the points file
+     */
     private Path mainPath;
+    /**
+     * main path to the points file
+     */
     private String MAIN_PATH = "2017/iaaf";
+    /**
+     * extension of points file
+     */
     private String EXTENSION = ".txt";
 
+    /**
+     * map of {@link ResultInformation} to the list of {@link Pair} or to pair of
+     * points and results.
+     */
     private static Map<ResultInformation, List<Pair>> resultsToPoints = new HashMap<>();
-    
+
     public ScoringSystem2017() {
         ClassLoader classLoader = getClass().getClassLoader();
         mainPath = Paths.get(classLoader.getResource(MAIN_PATH).getPath());
     }
 
-    
     @Override
     public void init() {
-        for(Discipline discipline : Discipline.values()) {
-            for(Gender gender : Gender.values()) {
-                for(AgeCategories ageCategories : AgeCategories.values()) {
-                    
+        for (Discipline discipline : Discipline.values()) {
+            for (Gender gender : Gender.values()) {
+                for (AgeCategories ageCategories : AgeCategories.values()) {
+
                     String disciplineName = discipline.getName();
                     String genderName = gender.getName();
                     String ageName = ageCategories.getName();
-                    
+
                     List<Pair> pairs = new ArrayList<>();
-                    
-                    Path scoringPath = Paths.get(mainPath.toString(), disciplineName + "/" + genderName + ageName + EXTENSION);
-                    
+
+                    Path scoringPath = Paths.get(mainPath.toString(),
+                            disciplineName + "/" + genderName + ageName + EXTENSION);
+
                     try {
                         List<String> lines = Files.readAllLines(scoringPath);
-                        for(String line : lines) {
+                        for (String line : lines) {
                             String[] sep = line.split(" ");
-                            if(sep.length % 2 != 0) throw new RuntimeException("Wrong file structure " + scoringPath.toString());
-                            for(int i=0;i<sep.length;i+=2) {
+                            if (sep.length % 2 != 0)
+                                throw new RuntimeException("Wrong file structure " + scoringPath.toString());
+                            for (int i = 0; i < sep.length; i += 2) {
                                 double value = Double.parseDouble(sep[i]);
-                                long points = Long.parseLong(sep[i+1]);
+                                long points = Long.parseLong(sep[i + 1]);
                                 pairs.add(new Pair(value, points));
                             }
                         }
                     } catch (IOException e) {
-                        //e.printStackTrace();
+                        // e.printStackTrace();
                     }
                     Collections.sort(pairs);
                     resultsToPoints.put(new ResultInformation(ageCategories, gender, discipline), pairs);
-                    
+
                 }
             }
         }
-        
+
     }
-    
+
     @Override
     public long getPoints(Result result) {
 
         ResultInformation resultInformation = new ResultInformation(result);
         List<Pair> points = resultsToPoints.get(resultInformation);
-        
-        for(Pair pair : points) {
-            if(pair.getResult() <= result.getResult()) {
-                return pair.getPoints(); 
+
+        for (Pair pair : points) {
+            if (pair.getResult() <= result.getResult()) {
+                return pair.getPoints();
             }
         }
-        
+
         return 0;
     }
-
-    public static void main(String[] args) {
-        new ScoringSystem2017().init();
-        
-    }
-
-    
 
 }

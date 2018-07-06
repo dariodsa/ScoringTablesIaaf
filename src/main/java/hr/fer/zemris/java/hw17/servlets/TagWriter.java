@@ -1,7 +1,6 @@
 package hr.fer.zemris.java.hw17.servlets;
 
 import java.io.IOException;
-
 import java.io.OutputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -15,8 +14,6 @@ import javax.ws.rs.ext.MessageBodyWriter;
 import javax.ws.rs.ext.Provider;
 
 import org.json.JSONObject;
-
-import hr.fer.akmaksimir.model.enumerations.Tag;
 
 /**
  * Class {@link TagWriter} is responsible to return JSON representation of the

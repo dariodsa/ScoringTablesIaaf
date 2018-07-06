@@ -5,20 +5,42 @@ import hr.fer.akmaksimir.model.enumerations.AgeCategories;
 import hr.fer.akmaksimir.model.enumerations.Discipline;
 import hr.fer.akmaksimir.model.enumerations.Gender;
 
+/**
+ * Class {@link ResultInformation} encapsulate a key which will be used in a map 
+ * from which will points be received. 
+ * @author dario
+ *
+ */
 public class ResultInformation {
     
+    /**
+     * age categotires
+     */
     private AgeCategories ageCategories;
+    /**
+     * gender
+     */
     private Gender gender;
+    /**
+     * discipline
+     */
     private Discipline discipline;
     
+    /**
+     * Constructs {@link ResultInformation} by calling the main constructor by 
+     * getting its properties. 
+     * @param result {@link Result}
+     */
     public ResultInformation(Result result) {
-        this.ageCategories = result.getAgeCategories();
-        this.discipline = result.getDiscipline();
-        this.gender = result.getGender();
+        this(result.getAgeCategories(), result.getGender(), result.getDiscipline());
     }
 
-    
-    
+    /**
+     * Constructs {@link ResultInformation} with the given properties.
+     * @param ageCategories age category
+     * @param gender gender
+     * @param discipline discipline
+     */
     public ResultInformation(AgeCategories ageCategories, Gender gender, Discipline discipline) {
         this.ageCategories = ageCategories;
         this.gender = gender;
