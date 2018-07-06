@@ -14,6 +14,39 @@ public class Result {
     private Discipline discipline;
     private Measurement typeOfMeasurment;
     
-    
+    public Result(long athleteId, double result, Gender gender, AgeCategories ageCategories, Discipline discipline,
+            Measurement typeOfMeasurment) {
+        super();
+        this.athleteId = athleteId;
+        this.result = result;
+        this.gender = gender;
+        this.ageCategories = ageCategories;
+        this.discipline = discipline;
+        this.typeOfMeasurment = typeOfMeasurment;
+    }
+
+    public long getAthleteId() {
+        return athleteId;
+    }
+
+    public double getResult() {
+        return result;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public AgeCategories getAgeCategories() {
+        return ageCategories;
+    }
+
+    public Discipline getDiscipline() {
+        return discipline;
+    }
+
+    public Measurement getTypeOfMeasurment() {
+        return typeOfMeasurment;
+    }
     
 }
