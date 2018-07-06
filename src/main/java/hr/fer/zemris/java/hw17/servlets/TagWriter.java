@@ -16,7 +16,7 @@ import javax.ws.rs.ext.Provider;
 
 import org.json.JSONObject;
 
-import hr.fer.zemris.java.hw17.model.Tag;
+import hr.fer.akmaksimir.model.enumerations.Tag;
 
 /**
  * Class {@link TagWriter} is responsible to return JSON representation of the

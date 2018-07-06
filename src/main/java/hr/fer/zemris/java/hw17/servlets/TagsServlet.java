@@ -18,8 +18,8 @@ import javax.ws.rs.core.Response.Status;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import hr.fer.zemris.java.hw17.model.Picture;
-import hr.fer.zemris.java.hw17.model.Tag;
+import hr.fer.akmaksimir.model.enumerations.Picture;
+import hr.fer.akmaksimir.model.enumerations.Tag;
 
 /**
  * Class {@link TagsServlet} returns the list of tags in the given text file.

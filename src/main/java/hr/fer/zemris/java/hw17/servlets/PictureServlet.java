@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response.Status;
 
 import org.json.JSONObject;
 
-import hr.fer.zemris.java.hw17.model.Picture;
+import hr.fer.akmaksimir.model.enumerations.Picture;
 
 /**
  * Class {@link PictureServlet} handles the requests about pictures. It returns
