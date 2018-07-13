@@ -1,7 +1,6 @@
 package hr.fer.atletika;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -15,11 +14,12 @@ import hr.fer.akmaksimir.model.scoresystem.ScoringSystem2017;
 
 public class TestScoring {
     
-    private ScoringSystem system; 
+    private static ScoringSystem system; 
     
     @BeforeClass
-    public void init() {
+    public static void init() {
         system = new ScoringSystem2017();
+        system.init();
     }
     
     @Test
