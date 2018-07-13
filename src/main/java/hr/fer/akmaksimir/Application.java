@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Class is a starting point of a spring application.
  * 
- * @author Josip Nimac
+ * @author dario
  *
  */
 @SpringBootApplication
