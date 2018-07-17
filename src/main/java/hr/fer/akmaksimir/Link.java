@@ -18,4 +18,6 @@ public class Link {
 	 * list of disciplines
 	 */
 	public static final String listDisciplines = "/api/listDisciplines";
+	
+	public static final String competitions = "/api/competitions";
 }

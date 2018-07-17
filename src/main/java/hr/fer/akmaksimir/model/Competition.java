@@ -1,6 +1,15 @@
 package hr.fer.akmaksimir.model;
 
+import java.io.Serializable;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * Class Competition encapsulate competition entity which 
@@ -9,21 +18,32 @@ import java.util.List;
  * @author dario
  *
  */
-public class Competition {
+@Entity
+@Table(name = "Competition")
+public class Competition implements Serializable{
     
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8526857412212324481L;
+
+	/**
      * competition id
      */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
     /**
      * competition name
      */
+	@Column
     private String name;
     
     /**
      * competition's results
      */
+	@OneToMany
     private List<Result> results;
     
     /**
