@@ -32,7 +32,10 @@ public class Result {
      */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-    private long athleteId;
+	private long id;
+	
+	@Column 
+	private long athleteId;
     /**
      * result
      */
@@ -177,5 +180,14 @@ public class Result {
 
 	public void setTypeOfMeasurment(Measurement typeOfMeasurment) {
 		this.typeOfMeasurment = typeOfMeasurment;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}    
+	
 }
