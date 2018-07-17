@@ -44,7 +44,7 @@ public class Result {
     /**
      * gender
      */
-	@Enumerated(EnumType.STRING)
+	
     private Gender gender;
     /**
      * age categories

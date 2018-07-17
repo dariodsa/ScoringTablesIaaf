@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,13 +13,16 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import hr.fer.akmaksimir.model.enumerations.Gender;
+
 @Entity
 @Table(name = "Athlete")
 public class Athlete {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+	@Column
+	private String passwordHash;
 	@Column
 	private String firstName;
 	
@@ -32,16 +37,22 @@ public class Athlete {
 	@Column
 	private String club;
 	
+	@Enumerated(EnumType.STRING)
+	private Gender gender;
+	
+	
 	public Athlete() {
 	}
 	
-	public Athlete(long id, String firstName, String lastName, Date dateOfBirth, String country, String club) {
+	public Athlete(long id, String passwordHash, String firstName, String lastName, Date dateOfBirth, String country, String club, Gender gender) {
 		this.id = id;
+		this.passwordHash = passwordHash;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
 		this.country = country;
 		this.club = club;
+		this.gender = gender;
 	}
 
 	public long getId() {
@@ -52,6 +63,14 @@ public class Athlete {
 		this.id = id;
 	}
 
+	public String getPasswordHash() {
+		return this.passwordHash;
+	}
+	
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -90,6 +109,14 @@ public class Athlete {
 
 	public void setClub(String club) {
 		this.club = club;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 	
 	
