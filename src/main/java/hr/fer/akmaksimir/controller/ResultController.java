@@ -1,5 +1,6 @@
 package hr.fer.akmaksimir.controller;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,11 @@ public class ResultController {
 	@GetMapping("/add")
 	public void addNewResult(@RequestBody Result result) {
 		resultRepository.save(result);
+	}
+	
+	@GetMapping("/getCompetitionId/{id}")
+	public Collection<Result> getResults(@RequestParam long id) {
+		return resultRepository.getResultByCompetitionId(id);
 	}
 	
 	
