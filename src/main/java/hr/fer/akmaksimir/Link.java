@@ -32,4 +32,6 @@ public class Link {
 	public static final String getPoints = "/api/getPoints";
 	
 	public static final String result = "/api/result";
+	
+	public static final String athlete = "/api/athlete";
 }

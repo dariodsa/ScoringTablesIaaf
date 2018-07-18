@@ -3,6 +3,7 @@ package hr.fer.akmaksimir.controller;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ import hr.fer.akmaksimir.model.enumerations.AgeCategories;
 @RequestMapping(Link.listCategories)
 public class ListCategories {
 	
+	@CrossOrigin
 	@RequestMapping("")
 	public Collection<String> listCategories() {
 		
