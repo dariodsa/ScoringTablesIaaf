@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +23,7 @@ public class AthleteController {
 	@Autowired
 	private AthleteRepository athleteRepository;
 	
+	@CrossOrigin
 	@GetMapping()
 	public Collection<Athlete> getAll() {
 		List<Athlete> list = new ArrayList<>();
@@ -28,6 +31,7 @@ public class AthleteController {
 		return list;
 	}
 	
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public Athlete getById(@RequestParam long id) {
 		Optional<Athlete> athlete = athleteRepository.findById(id);
@@ -35,5 +39,11 @@ public class AthleteController {
 			return athlete.get();
 		}
 		return null;
+	}
+	
+	@CrossOrigin
+	@RequestMapping("/add")
+	public void addAthlete(@RequestBody Athlete athlete) {
+		athleteRepository.save(athlete);
 	}
 }

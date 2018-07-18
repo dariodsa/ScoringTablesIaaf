@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import hr.fer.akmaksimir.model.enumerations.Gender;
 
@@ -24,17 +27,22 @@ public class Athlete {
 	@Column
 	private String passwordHash;
 	@Column
+	@Size(min=3, max = 25)
 	private String firstName;
 	
 	@Column
+	@Size(min=3, max = 25)
 	private String lastName;
 	
+	@JsonFormat(pattern="yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 	
 	@Column
+	@Size(min=3, max = 25)
 	private String country;
 	@Column
+	@Size(min=3, max = 25)
 	private String club;
 	
 	@Enumerated(EnumType.STRING)

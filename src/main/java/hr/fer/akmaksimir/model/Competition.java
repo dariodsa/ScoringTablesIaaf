@@ -43,9 +43,7 @@ public class Competition implements Serializable{
     /**
      * competition's results
      */
-	@OneToMany
-    private List<Result> results;
-    
+	
     /**
      * default constructor
      */
@@ -84,20 +82,6 @@ public class Competition implements Serializable{
         this.name = name;
     }
     
-    /**
-     * Returns the list of results.
-     * @return list of results.
-     */
-    public List<Result> getResults() {
-        return results;
-    }
-    
-    /**
-     * Sets the results of the competition
-     * @param results results
-     */
-    public void setResults(List<Result> results) {
-        this.results = results;
-    }
+   
     
 }

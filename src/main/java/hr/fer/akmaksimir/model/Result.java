@@ -36,6 +36,10 @@ public class Result {
 	
 	@Column 
 	private long athleteId;
+	
+	@Column
+	private long competitionId;
+	
     /**
      * result
      */
@@ -62,8 +66,7 @@ public class Result {
 	@Enumerated(EnumType.STRING)
     private Measurement typeOfMeasurment;
 	
-	@ManyToOne
-	private Competition competition;
+	
 
 	public Result() {
 		
@@ -150,12 +153,12 @@ public class Result {
         return typeOfMeasurment;
     }
 
-	public Competition getCompetition() {
-		return competition;
+	public long getCompetitionId() {
+		return competitionId;
 	}
 
-	public void setCompetition(Competition competition) {
-		this.competition = competition;
+	public void setCompetitionId(long competitionId) {
+		this.competitionId = competitionId;
 	}
 
 	public void setAthleteId(long athleteId) {

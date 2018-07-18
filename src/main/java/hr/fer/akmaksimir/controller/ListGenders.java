@@ -19,7 +19,7 @@ public class ListGenders {
 	public Collection<String> listGenders() {
 		Collection<String> values = new ArrayList<>();
 		for(Gender gender : Gender.values()) {
-			values.add(gender.getName());
+			values.add(gender.toString());
 		}
 		return values;
 	}
