@@ -1,6 +1,7 @@
 package hr.fer.akmaksimir.controller;
 
 import org.junit.BeforeClass;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,6 +28,7 @@ public class Points {
 	    system.init();
     }
     
+    @CrossOrigin
 	@RequestMapping(method = RequestMethod.GET)
 	public long getPoints(@RequestBody Result result) {
 		long points = system.getPoints(result);

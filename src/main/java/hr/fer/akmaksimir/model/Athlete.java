@@ -24,8 +24,7 @@ public class Athlete {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@Column
-	private String passwordHash;
+	
 	@Column
 	@Size(min=3, max = 25)
 	private String firstName;
@@ -52,9 +51,8 @@ public class Athlete {
 	public Athlete() {
 	}
 	
-	public Athlete(long id, String passwordHash, String firstName, String lastName, Date dateOfBirth, String country, String club, Gender gender) {
+	public Athlete(long id, String firstName, String lastName, Date dateOfBirth, String country, String club, Gender gender) {
 		this.id = id;
-		this.passwordHash = passwordHash;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
@@ -69,14 +67,6 @@ public class Athlete {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getPasswordHash() {
-		return this.passwordHash;
-	}
-	
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
 	}
 	
 	public String getFirstName() {

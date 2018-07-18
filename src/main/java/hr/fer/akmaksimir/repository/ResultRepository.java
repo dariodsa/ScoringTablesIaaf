@@ -10,6 +10,6 @@ import hr.fer.akmaksimir.model.Result;
 
 public interface ResultRepository extends CrudRepository<Result, Long>{
 	
-	@Query("SELECT r FROM Result r WHERE r.competition.id=:id")
+	@Query("SELECT r FROM Result r")
 	List<Result> getResultByCompetitionId(@RequestParam long id);
 }
