@@ -45,16 +45,7 @@ public class Result {
      */
 	@Column
     private double result;
-    /**
-     * gender
-     */
-	
-    private Gender gender;
-    /**
-     * age categories
-     */
-	@Enumerated(EnumType.STRING)
-	private AgeCategories ageCategories;
+    
     /**
      * discipline
      */
@@ -93,8 +84,6 @@ public class Result {
         super();
         this.athleteId = athleteId;
         this.result = result;
-        this.gender = gender;
-        this.ageCategories = ageCategories;
         this.discipline = discipline;
         this.typeOfMeasurment = typeOfMeasurment;
     }
@@ -117,24 +106,7 @@ public class Result {
         return result;
     }
 
-    /**
-     * Returns the gender.
-     * 
-     * @return gender
-     */
-    public Gender getGender() {
-        return gender;
-    }
-
-    /**
-     * Returns the age category.
-     * 
-     * @return age category
-     */
-    public AgeCategories getAgeCategories() {
-        return ageCategories;
-    }
-
+    
     /**
      * Returns the {@link Discipline}.
      * 
@@ -168,15 +140,6 @@ public class Result {
 	public void setResult(double result) {
 		this.result = result;
 	}
-
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
-
-	public void setAgeCategories(AgeCategories ageCategories) {
-		this.ageCategories = ageCategories;
-	}
-
 	public void setDiscipline(Discipline discipline) {
 		this.discipline = discipline;
 	}

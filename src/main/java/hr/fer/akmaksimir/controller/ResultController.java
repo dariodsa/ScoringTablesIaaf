@@ -22,7 +22,7 @@ public class ResultController {
 	private ResultRepository resultRepository;
 	
 	@CrossOrigin
-	@GetMapping("/{id}")
+	@GetMapping("")
 	public Optional<Result> getResult(@RequestParam long id) {
 		return resultRepository.findById(id);
 	}
@@ -34,7 +34,7 @@ public class ResultController {
 	}
 	
 	@CrossOrigin
-	@GetMapping("/getCompetitionId/{id}")
+	@GetMapping("/getCompetitionId")
 	public Collection<Result> getResults(@RequestParam long id) {
 		return resultRepository.getResultByCompetitionId(id);
 	}
