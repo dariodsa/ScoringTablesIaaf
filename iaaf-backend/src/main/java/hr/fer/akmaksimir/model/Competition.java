@@ -5,11 +5,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import hr.fer.akmaksimir.model.enumerations.CompetitionType;
 
 /**
  * Class Competition encapsulate competition entity which 
@@ -40,9 +43,8 @@ public class Competition implements Serializable{
 	@Column
     private String name;
     
-    /**
-     * competition's results
-     */
+	@Enumerated
+	private CompetitionType competitionType;
 	
     /**
      * default constructor
@@ -81,7 +83,15 @@ public class Competition implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+
+	public CompetitionType getCompetitionType() {
+		return competitionType;
+	}
+
+	public void setCompetitionType(CompetitionType competitionType) {
+		this.competitionType = competitionType;
+	}
     
-   
+    
     
 }
