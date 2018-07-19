@@ -46,12 +46,17 @@ public class Athlete {
 	
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
-	
+	@Column
+	private long competitionId;
+	@Column
+	private String bib;
 	
 	public Athlete() {
 	}
-	
-	public Athlete(long id, String firstName, String lastName, Date dateOfBirth, String country, String club, Gender gender) {
+
+	public Athlete(long id, @Size(min = 3, max = 25) String firstName, @Size(min = 3, max = 25) String lastName,
+			Date dateOfBirth, @Size(min = 3, max = 25) String country, @Size(min = 3, max = 25) String club,
+			Gender gender, long competitionId, String bib) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -59,6 +64,8 @@ public class Athlete {
 		this.country = country;
 		this.club = club;
 		this.gender = gender;
+		this.competitionId = competitionId;
+		this.bib = bib;
 	}
 
 	public long getId() {
@@ -68,7 +75,7 @@ public class Athlete {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -116,6 +123,21 @@ public class Athlete {
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-	
-	
+
+	public long getCompetitionId() {
+		return competitionId;
+	}
+
+	public void setCompetitionId(long competitionId) {
+		this.competitionId = competitionId;
+	}
+
+	public String getBib() {
+		return bib;
+	}
+
+	public void setBib(String bib) {
+		this.bib = bib;
+	}
+		
 }
