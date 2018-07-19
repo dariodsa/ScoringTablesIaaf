@@ -1,9 +1,32 @@
 <div class="container">
     <button (click)="showNewResult();">Dodaj rezultat</button><br>
     <button (click)="showNewAthlete();">Dodaj atletičara</button><br>
-    <button (click)="showNewAthlete();">Popis atletičara</button><br>
+    <button (click)="showRegistedAthletes();">Popis atletičara</button><br>
     <button >Promijeni rezultate</button><br>
-    
+    <div *ngIf="showAthletes">
+        <table class="table">
+            <tr>
+                <td>Redni broj</td>
+                <td>Ime</td>
+                <td>Prezime</td>
+                <td>Spol</td>
+                <td>Datum rođenja</td>
+                <td>Startni broj</td>
+                <td>Klub</td>
+                <td>Država</td>
+            </tr>
+            <tr *ngFor="let athlete of athletes; let i = index">
+                <td>{{i+1}}.</td>
+                <td>{{athlete.firstName}}</td>
+                <td>{{athlete.lastName}}</td>
+                <td>{{athlete.gender}}</td>
+                <td>{{athlete.dateOfBirth}}</td>
+                <td>{{athlete.bib}}</td>
+                <td>{{athlete.club}}</td>
+                <td>{{athlete.country}}</td>
+            </tr>
+        </table>
+    </div>
     <div id="newAthlete" *ngIf="newAthlete">
         <table>
             <tr>
@@ -55,7 +78,7 @@
             
             <tr>
                 <td>Startni broj:</td>
-                <td><input type="number" placeholder="242"/></td>
+                <td><input type="number" id="bib" placeholder="242"/></td>
             </tr>
             <tr>
                 <td></td>

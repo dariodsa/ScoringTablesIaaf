@@ -3,14 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main';
 import { LoginComponent } from './login/login';
-import { AddAthleteComponent } from './addAthlete/addAthlete';
 import { AthletesComponent } from './athletes/athletes';
 import { CompetitionsComponent } from './competitions/competitions';
 import { CompetitionToolbarComponent } from './competition/competition';
  
  
 const routes: Routes = [
-  { path: 'addAthlete', component: AddAthleteComponent},
   { path: 'athletes', component: AthletesComponent},
   { path: 'competitions', component: CompetitionsComponent},
   { path: 'competition/:id', component: CompetitionToolbarComponent},

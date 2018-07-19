@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login';
-import { AddAthleteComponent } from './addAthlete/addAthlete';
 import { SimpleRestApiService } from './service/simple-rest-api-service';
 import { ComponentInjectorService } from './service/ComponentInjectorService';
 import { MatAutocompleteModule, MatInputModule } from '@angular/material';
@@ -24,7 +23,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     MainComponent,
     LoginComponent,
-    AddAthleteComponent,
     AthletesComponent,
     CompetitionsComponent,
     CompetitionToolbarComponent

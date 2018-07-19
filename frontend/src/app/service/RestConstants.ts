@@ -15,6 +15,7 @@ export class RestConstants {
 	public static GET_COMPETITIONS : string = RestConstants.REST_API_PREFIX + "competitions";
 	public static GET_RESULTS : string = RestConstants.REST_API_PREFIX + "result/getCompetitionId/";
 	public static GET_POINTS : string = RestConstants.REST_API_PREFIX + "getPoints";
+	public static GET_ATHLETE_COMP : string = RestConstants.REST_API_PREFIX + "athlete/withCompetititonId"
 
 
 }

@@ -8,6 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import {Observable, Subject} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
+import { Athlete } from '../model/athlete';
 
 
 @Component({
@@ -26,9 +27,13 @@ export class CompetitionToolbarComponent implements OnInit {
 
   disciplines : Array<String> = [];
   measurments : Array<String> = [];
+
+  athletes : Array<Athlete> = [];
   
   newResult : boolean = false;
   newAthlete : boolean = false;
+  showAthletes : boolean = false;
+
   competitionId : number;
 
 
@@ -39,8 +44,6 @@ export class CompetitionToolbarComponent implements OnInit {
   ngOnInit() {
       this.route.params.subscribe((params : Params) => {
           this.competitionId = params['id'];
-          console.log(this.competitionId);
-          console.log(this.route.paramMap);
       });
       this.initResults();
       this.initMeasurment();
@@ -48,10 +51,12 @@ export class CompetitionToolbarComponent implements OnInit {
   }
   private showNewResult() : void {
     this.newResult = !this.newResult;
+    this.newAthlete = false;
   }
 
   private showNewAthlete() : void {
     this.newAthlete = !this.newAthlete;
+    this.newResult = false;
   }
 
   private addResult() : void {
@@ -76,6 +81,60 @@ export class CompetitionToolbarComponent implements OnInit {
       },
       (err) => alert("Dogodila se pogreška.\n")
     );
+  }
+  addAthlete() {
+    let firstName = (<HTMLInputElement>document.getElementById("firstName")).value;
+    let lastName = (<HTMLInputElement>document.getElementById("lastName")).value;
+    let gender = (<HTMLInputElement>document.getElementById("gender")).value;
+    let date = (<HTMLInputElement>document.getElementById("dateOfBirth")).value;
+    
+
+    let dateOfBirth = date;
+    let club = (<HTMLInputElement>document.getElementById("club")).value;
+    let country = (<HTMLInputElement>document.getElementById("country")).value;
+    let bib = (<HTMLInputElement>document.getElementById("bib")).value;
+
+    let object : Athlete = <Athlete>({
+        id : 0,
+        competitionId : this.competitionId,
+        firstName : firstName,
+        lastName : lastName,
+        dateOfBirth : dateOfBirth,
+        gender : gender,
+        club : club,
+        country : country,
+        bib : bib
+    });
+      
+
+    this.restService.updateService(RestConstants.ADD_ATHLETE, object
+       ).subscribe(
+          (data) => {
+            alert("Atletičar je dodan.");
+            this.newAthlete = false;
+          },
+          (err) => alert("Dogodila se pogreška.\n" + err)
+            
+         );
+
+  }
+
+  private showRegistedAthletes() : void {
+    this.getAthletes(); 
+    
+    this.showAthletes = true;
+    this.newAthlete = false;
+    this.newResult = false;
+  }
+
+  private getAthletes() : void {
+    let array : Array<Athlete> = [];
+    this.restService.getUrlServiceWithParams(RestConstants.GET_ATHLETE_COMP, {competitionId : this.competitionId}).subscribe(
+      (next : Athlete[]) => {
+        this.athletes = next;
+      }
+    );
+    
   }
 
   private  initResults() : void {

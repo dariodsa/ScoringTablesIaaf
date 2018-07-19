@@ -32,13 +32,9 @@ public class AthleteController {
 	}
 	
 	@CrossOrigin
-	@GetMapping("/{id}")
-	public Athlete getById(@RequestParam long id) {
-		Optional<Athlete> athlete = athleteRepository.findById(id);
-		if(athlete.isPresent()) {
-			return athlete.get();
-		}
-		return null;
+	@GetMapping("/withCompetititonId")
+	public Collection<Athlete> getById(@RequestParam long competitionId) {
+		return athleteRepository.getWithCompetitionId(competitionId);
 	}
 	
 	@CrossOrigin
