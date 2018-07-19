@@ -1,0 +1,10 @@
+.component{
+    margin-top: 50px;
+    
+    margin-right: 100px;
+    margin-left: 100px;
+    
+}
+.table {
+    width: -moz-available;
+}

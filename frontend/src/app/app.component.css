@@ -17,3 +17,6 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     text-align: center;
 }
+.login-form{
+    float: right;
+}

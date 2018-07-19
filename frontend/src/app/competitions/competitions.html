@@ -1,33 +1,57 @@
-<button (click)="showNewCompetition();">Dodaj natjecanje</button>
-<div id="newCompetition" *ngIf="newCompetition">
-    <table>
+<div class="component">
+    <button (click)="showNewCompetition();">Dodaj natjecanje</button>
+    <div id="newCompetition" *ngIf="newCompetition">
+        <table>
+            <tr>
+                <td>Naziv natjecanja:</td>
+                <td><input type="text" id="competitionName" placeholder="Državno prvenstvo u višeboju za veterane"></td>
+            </tr>
+            <tr>
+                <td>Tip natjecanja</td>
+                <td>
+                    <select id="competitionType">
+                        <option value="OUTDOOR">Vanjsko</option>
+                        <option value="INDOOR">Dvoransko</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button (click)="addCompetition();">Dodaj natjecanje</button></td>
+            </tr>
+        </table>
+    </div>
+    <br> 
+    <br>
+    <h4>Natjecanja</h4>
+    <table class="table">
         <tr>
-            <td>Naziv natjecanja:</td>
-            <td><input type="text" id="competitionName" placeholder="Državno prvenstvo u višeboju za veterane"></td>
-        </tr>
-        <tr>
-            <td>Tip natjecanja</td>
             <td>
-                <select id="competitionType">
-                    <option value="OUTDOOR">Vanjsko</option>
-                    <option value="INDOOR">Dvoransko</option>
-                </select>
+                Redni broj
+            </td>
+            <td>
+                Naziv natjecanja
+            </td>
+            <td>
+                Tip natjecanja
+            </td>
+            <td>
+                Rezultati
             </td>
         </tr>
-        <tr>
-            <td></td>
-            <td><button (click)="addCompetition();">Dodaj natjecanje</button></td>
+        <tr *ngFor="let competition of competitions; let i = index">
+            <td>
+                {{i+1}}.
+            </td>
+            <td>
+                <a href="/competition/{{i}}">{{competition.name}}</a>
+            </td>
+            <td>
+                {{competition.competitionType}}
+            </td>
+            <td>
+                <a href="">Rezultati</a>
+            </td>
         </tr>
     </table>
 </div>
-<br> 
-<table class="table">
-    <tr *ngFor="let competition of competitions; let i = index">
-        <td>
-            {{i+1}}.
-        </td>
-        <td>
-            <a href="/competition/{{i}}">{{competition.name}}</a>
-        </td>
-    </tr>
-</table>
