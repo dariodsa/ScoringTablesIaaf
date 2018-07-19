@@ -2,3 +2,18 @@
     text-align: right;
     font-size: 10px;
 }
+.nav-link{
+    text-align: center;
+    font-size: 30 px;
+}
+.navbar{
+    width: -moz-available;
+
+}
+.login-button{
+    color: white;
+    background-color: #006dcc;
+    font-size: 14px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: center;
+}
