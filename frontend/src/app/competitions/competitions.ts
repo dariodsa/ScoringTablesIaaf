@@ -14,7 +14,7 @@ export class CompetitionsComponent implements OnInit {
 
   competitions : Array<Competition> = [];
   
-  newCompetition : boolean = true;
+  newCompetition : boolean = false;
 
   constructor(private restService : SimpleRestApiService) {
     
@@ -30,9 +30,11 @@ export class CompetitionsComponent implements OnInit {
 
   private addCompetition() : void {
     let competitionName = (<HTMLInputElement>document.getElementById("competitionName")).value;
+    let competitionType = (<HTMLInputElement>document.getElementById("competitionType")).value;
     let competition : Competition = <Competition>({
               id : 0,
-              name : competitionName
+              name : competitionName,
+              competitionType : competitionType
     });
 
     this.restService.updateService(RestConstants.ADD_COMPETITION, competition).subscribe(

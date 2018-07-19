@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'competition/:id', component: CompetitionToolbarComponent},
   { path: 'login', component: LoginComponent},
   { path: 'main', component: MainComponent },
-  { path: '', component: AppComponent }
+  { path: '', component: CompetitionsComponent }
 ];
  
 @NgModule({

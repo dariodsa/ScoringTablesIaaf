@@ -6,6 +6,15 @@
             <td><input type="text" id="competitionName" placeholder="Državno prvenstvo u višeboju za veterane"></td>
         </tr>
         <tr>
+            <td>Tip natjecanja</td>
+            <td>
+                <select id="competitionType">
+                    <option value="OUTDOOR">Vanjsko</option>
+                    <option value="INDOOR">Dvoransko</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
             <td></td>
             <td><button (click)="addCompetition();">Dodaj natjecanje</button></td>
         </tr>
