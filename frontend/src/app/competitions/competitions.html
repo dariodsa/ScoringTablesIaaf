@@ -1,0 +1,24 @@
+<button (click)="showNewCompetition();">Dodaj natjecanje</button>
+<div id="newCompetition" *ngIf="newCompetition">
+    <table>
+        <tr>
+            <td>Naziv natjecanja:</td>
+            <td><input type="text" id="competitionName" placeholder="Državno prvenstvo u višeboju za veterane"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button (click)="addCompetition();">Dodaj natjecanje</button></td>
+        </tr>
+    </table>
+</div>
+<br> 
+<table class="table">
+    <tr *ngFor="let competition of competitions; let i = index">
+        <td>
+            {{i+1}}.
+        </td>
+        <td>
+            <a href="/competition/{{i}}">{{competition.name}}</a>
+        </td>
+    </tr>
+</table>

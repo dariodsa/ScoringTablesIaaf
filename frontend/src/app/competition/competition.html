@@ -1,0 +1,95 @@
+<button (click)="showNewResult();">Dodaj rezultat</button>
+<button (click)="showNewAthlete();">Dodaj atletičara</button>
+<div id="newAthlete" *ngIf="newAthlete">
+    <table>
+        <tr>
+            <td colspan="4">
+                <h4>
+                    Novi atletičar
+                </h4>
+            </td>
+        </tr>
+        <tr>
+            <td>Atletičar:</td>
+            <td>
+                    <div class="container" >
+                            <div class="input-field col s12">
+                              <input id="country" type="text" class="validate filter-input" [(ngModel)]=query (keyup)=filter()>
+                            </div>
+                            <div class="suggestions" *ngIf="filteredList.length > 0">
+                                <ul *ngFor="let item of filteredList" >
+                                    <li >
+                                        <a (click)="select(item)">{{item}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Startni broj:</td>
+            <td><input type="number"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button (click)="addAthlete();">Registriraj atletičara</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="newResult" *ngIf="newResult">
+    <table>
+        <tr>
+            <td colspan="3">
+                <h4>Novi rezultat</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>Atletičar:</td>
+            <td>
+                <!--<input type="text" id="athlete">-->
+                
+            </td>
+            </tr>
+        <tr>
+            <td>Rezultat:</td>
+            <td><input type="text" id="result" placeholder="02:28:23"></td>
+        </tr>
+        <tr>
+            <td>Discliplina: </td>
+            <td>
+                <select id="discipline">
+                    <option *ngFor="let discipline of disciplines">
+                        {{discipline}}
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Tip mjerenja: </td>
+            <td>
+                <select id="measurment">
+                    <option *ngFor="let measurment of measurments">
+                        {{measurment}}
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button (click)="addResult();">Dodaj rezultat</button></td>
+        </tr>
+    </table>
+</div>
+<br> 
+<table class="table">
+    <tr *ngFor="let result of results; let i = index">
+        <td>
+            {{i+1}}.
+        </td>
+        <td>
+            
+        </td>
+    </tr>
+</table>
