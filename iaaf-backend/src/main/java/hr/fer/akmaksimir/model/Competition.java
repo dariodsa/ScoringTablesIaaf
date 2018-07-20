@@ -26,30 +26,21 @@ import hr.fer.akmaksimir.model.enumerations.CompetitionType;
 @Table(name = "Competition")
 public class Competition implements Serializable{
     
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 8526857412212324481L;
+    private static final long serialVersionUID = 8526857412212324481L;
 
-	/**
-     * competition id
-     */
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
-    /**
-     * competition name
-     */
-	@Column
+    @Column
     private String name;
     
 	@Enumerated(EnumType.STRING)
 	private CompetitionType competitionType;
-	
-    /**
-     * default constructor
-     */
+	@Column
+	private long authorId; 
+    
     public Competition() {
     }
     
@@ -92,7 +83,12 @@ public class Competition implements Serializable{
 	public void setCompetitionType(CompetitionType competitionType) {
 		this.competitionType = competitionType;
 	}
-    
-    
-    
+
+	public long getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(long authorId) {
+		this.authorId = authorId;
+	}
 }
