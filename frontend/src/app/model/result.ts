@@ -1,6 +1,6 @@
 export interface Result {
     id : number;
-    athleteId : string;
+    athleteId : number;
     competitionId : number;
     result : string;   
     discipline : string;

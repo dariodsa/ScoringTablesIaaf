@@ -49,14 +49,17 @@ export class CompetitionToolbarComponent implements OnInit {
       this.initMeasurment();
       this.initDisciplines();
   }
+
   private showNewResult() : void {
     this.newResult = !this.newResult;
     this.newAthlete = false;
+    this.showAthletes = false;
   }
 
   private showNewAthlete() : void {
     this.newAthlete = !this.newAthlete;
     this.newResult = false;
+    this.showAthletes = false;
   }
 
   private addResult() : void {
@@ -68,7 +71,7 @@ export class CompetitionToolbarComponent implements OnInit {
     let result : Result = <Result>({
               id : 0,
               competitionId : this.competitionId,
-              athleteId : athleteId,
+              athleteId : 5,
               discipline : discipline,
               measurement : measurment
 
@@ -121,8 +124,7 @@ export class CompetitionToolbarComponent implements OnInit {
 
   private showRegistedAthletes() : void {
     this.getAthletes(); 
-    
-    this.showAthletes = true;
+    this.showAthletes = !this.showAthletes;
     this.newAthlete = false;
     this.newResult = false;
   }
