@@ -3,14 +3,14 @@
 -- ===================================================================
 
 
-INSERT INTO Athlete (id, competitionId, lastName, firstName, gender, dateOfBirth, club, country) VALUES
-  (0, 0, 'Sindicic', 'Dario', 'MALE', '1995-10-05', 'Ak Maksimir', 'Hrvatska');
+INSERT INTO Athlete (id, competitionId, lastName, firstName, gender, dateOfBirth, club, country, bib) VALUES
+  (0, 0, 'Sindicic', 'Dario', 'MALE', '1995-10-05', 'Ak Maksimir', 'Hrvatska', '257');
   
-INSERT INTO Athlete (id, competitionId,lastName, firstName, gender, dateOfBirth, club, country) VALUES
-  (1, 0, 'Kosic', 'Kreso', 'MALE', '1978-10-05', 'Ak Maksimir', 'Hrvatska');
+INSERT INTO Athlete (id, competitionId,lastName, firstName, gender, dateOfBirth, club, country, bib) VALUES
+  (1, 0, 'Kosic', 'Kreso', 'MALE', '1978-10-05', 'Ak Maksimir', 'Hrvatska' , '256');
  
-INSERT INTO Athlete (id, competitionId, lastName, firstName, gender, dateOfBirth, club, country) VALUES
-  (2, 0, 'Marko', 'Masic', 'MALE', '1986-10-05', 'Ak Maksimir', 'Hrvatska');
+INSERT INTO Athlete (id, competitionId, lastName, firstName, gender, dateOfBirth, club, country, bib) VALUES
+  (2, 0, 'Marko', 'Masic', 'MALE', '1986-10-05', 'Ak Maksimir', 'Hrvatska', '255');
   
 INSERT INTO Competition (id, name, competitionType) VALUES
   (2, 'Drzavno', 'OUTDOOR');

@@ -12,14 +12,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hr.fer.akmaksimir.Link;
+import hr.fer.akmaksimir.model.Athlete;
 import hr.fer.akmaksimir.model.Result;
+import hr.fer.akmaksimir.model.ScoringSystem;
+import hr.fer.akmaksimir.model.scoresystem.ScoringSystem2017;
+import hr.fer.akmaksimir.repository.AthleteRepository;
 import hr.fer.akmaksimir.repository.ResultRepository;
 
 @RestController
 @RequestMapping(Link.result)
 public class ResultController {
+	
+	private static ScoringSystem system;
+	
+    static {
+    	
+		system = new ScoringSystem2017();
+	    system.init();
+    }
+	
 	@Autowired
 	private ResultRepository resultRepository;
+	
+	@Autowired
+	private AthleteRepository athleteRepository;
 	
 	@CrossOrigin
 	@GetMapping("")
@@ -36,6 +52,12 @@ public class ResultController {
 			value = value * 60 + Double.parseDouble(numbers[i]);
 		}
 		result.setResult(value);
+		
+		Athlete athlete = athleteRepository.findById(result.getAthleteId()).get();
+    	
+    	long points = system.getPoints(result, athlete);
+    	result.setPoints(points);
+		
 		resultRepository.save(result);
 	}
 	

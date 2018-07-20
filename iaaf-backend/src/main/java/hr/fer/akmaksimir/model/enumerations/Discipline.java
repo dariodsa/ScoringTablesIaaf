@@ -44,7 +44,8 @@ public enum Discipline {
      * disc, 2 kg
      */
     DISC_2("disc2");
-
+	
+	
     /**
      * name property
      */
