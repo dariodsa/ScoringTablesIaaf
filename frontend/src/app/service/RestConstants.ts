@@ -3,6 +3,8 @@ export class RestConstants {
 	private static PREFIX : string = "http://127.0.0.1:8080/";
 	private static REST_API_PREFIX: string = RestConstants.PREFIX + "api/";
 	
+	public static CHECK_USER : string = RestConstants.REST_API_PREFIX + "user";
+
 	public static LIST_GENDERS : string = RestConstants.REST_API_PREFIX + "listGenders";
 	public static LIST_CATEGORIES : string = RestConstants.REST_API_PREFIX + "listCategories";
 	public static LIST_DISCIPLINES : string = RestConstants.REST_API_PREFIX + "listDisciplines";

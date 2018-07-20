@@ -18,13 +18,13 @@
       <table class="login-form">
         <tr>
           <td>
-            <input type="text" placeholder="korisničko ime"/>
+            <input type="text" id="username" placeholder="korisničko ime"/>
           </td>
           <td>
-              <input type="password" placeholder="lozinka"/>
+              <input type="password" id="password" placeholder="lozinka"/>
           </td>
           <td>
-            <input class="login-button" type="submit" value="Prijava"/>
+            <button class="login-button" (click)="login();">Prijava</button>
           </td>
         </tr>
       </table>

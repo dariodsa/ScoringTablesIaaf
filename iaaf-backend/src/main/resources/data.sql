@@ -3,6 +3,9 @@
 -- ===================================================================
 
 
+INSERT INTO User (id, username, passwordHash) VALUES 
+  (0, 'dario', '2dbe33913ae5d6b16a801119f5fa1c419620c26d1a456e01490d697eb9b12589');
+
 INSERT INTO Athlete (id, competitionId, lastName, firstName, gender, dateOfBirth, club, country, bib) VALUES
   (0, 0, 'Sindicic', 'Dario', 'MALE', '1995-10-05', 'Ak Maksimir', 'Hrvatska', '257');
   
