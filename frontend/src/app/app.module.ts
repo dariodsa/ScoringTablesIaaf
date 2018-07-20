@@ -17,6 +17,7 @@ import { AthletesComponent } from './athletes/athletes';
 import { CompetitionsComponent } from './competitions/competitions';
 import { CompetitionToolbarComponent } from './competition/competition';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ResultsComponent } from './results/results';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     AthletesComponent,
     CompetitionsComponent,
-    CompetitionToolbarComponent
+    CompetitionToolbarComponent,
+    ResultsComponent
     
   ],
   imports: [

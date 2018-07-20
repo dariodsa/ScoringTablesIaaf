@@ -139,5 +139,6 @@ public class Athlete {
 	public void setBib(String bib) {
 		this.bib = bib;
 	}
+	
 		
 }

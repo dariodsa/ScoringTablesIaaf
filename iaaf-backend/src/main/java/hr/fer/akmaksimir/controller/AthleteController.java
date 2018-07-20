@@ -32,6 +32,13 @@ public class AthleteController {
 	}
 	
 	@CrossOrigin
+	@GetMapping("/id")
+	public Athlete getAthleteById(@RequestParam long id) {
+		return athleteRepository.findById(id).get();
+	}
+	
+	
+	@CrossOrigin
 	@GetMapping("/withCompetititonId")
 	public Collection<Athlete> getById(@RequestParam long competitionId) {
 		return athleteRepository.getWithCompetitionId(competitionId);

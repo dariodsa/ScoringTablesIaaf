@@ -4,5 +4,6 @@ export interface Result {
     competitionId : number;
     result : string;   
     discipline : string;
+    points : number;
     measurement : string;
 }

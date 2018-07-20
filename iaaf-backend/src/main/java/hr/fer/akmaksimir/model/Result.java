@@ -45,7 +45,8 @@ public class Result {
      */
 	@Column
     private double result;
-    
+    @Column
+    private long points;
     /**
      * discipline
      */
@@ -154,6 +155,16 @@ public class Result {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public long getPoints() {
+		return points;
+	}
+
+	public void setPoints(long points) {
+		this.points = points;
 	}    
+	
+	
 	
 }
