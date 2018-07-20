@@ -22,5 +22,5 @@ public interface ScoringSystem {
      *            {@link Result} result
      * @return long, number of points
      */
-    public long getPoints(Result result);
+    public long getPoints(Result result, Athlete athlete);
 }

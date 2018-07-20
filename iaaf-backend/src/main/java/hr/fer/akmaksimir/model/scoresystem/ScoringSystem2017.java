@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import hr.fer.akmaksimir.model.Athlete;
 import hr.fer.akmaksimir.model.Result;
 import hr.fer.akmaksimir.model.ScoringSystem;
 import hr.fer.akmaksimir.model.enumerations.AgeCategories;
@@ -66,7 +67,12 @@ public class ScoringSystem2017 implements ScoringSystem {
                             if (sep.length % 2 != 0)
                                 throw new RuntimeException("Wrong file structure " + scoringPath.toString());
                             for (int i = 0; i < sep.length; i += 2) {
-                                double value = Double.parseDouble(sep[i]);
+                                double value = 0;
+                            	String[] values = sep[i].split(":");
+                            	for(String val : values) {
+                            		value = value * 60 + Double.parseDouble(val);
+                            	}
+                            	//double value = Double.parseDouble(sep[i]);
                                 long points = Long.parseLong(sep[i + 1]);
                                 pairs.add(new Pair(value, points));
                             }
@@ -84,9 +90,9 @@ public class ScoringSystem2017 implements ScoringSystem {
     }
 
     @Override
-    public long getPoints(Result result) {
+    public long getPoints(Result result, Athlete athlete) {
 
-        ResultInformation resultInformation = new ResultInformation(result);
+        ResultInformation resultInformation = new ResultInformation(result, athlete);
         List<Pair> points = resultsToPoints.get(resultInformation);
 
         for (Pair pair : points) {

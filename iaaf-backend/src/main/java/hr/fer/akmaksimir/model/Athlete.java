@@ -14,8 +14,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import org.springframework.lang.Nullable;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import hr.fer.akmaksimir.model.enumerations.AgeCategories;
 import hr.fer.akmaksimir.model.enumerations.Gender;
 
 @Entity
@@ -50,6 +53,10 @@ public class Athlete {
 	private long competitionId;
 	@Column
 	private String bib;
+	
+	@Column
+	@Nullable
+	private AgeCategories ageCategories;
 	
 	public Athlete() {
 	}
@@ -139,6 +146,14 @@ public class Athlete {
 	public void setBib(String bib) {
 		this.bib = bib;
 	}
+
+	public AgeCategories getAgeCategories() {
+		return ageCategories;
+	}
+
+	public void setAgeCategories(AgeCategories ageCategories) {
+		this.ageCategories = ageCategories;
+	}
 	
-		
+	
 }

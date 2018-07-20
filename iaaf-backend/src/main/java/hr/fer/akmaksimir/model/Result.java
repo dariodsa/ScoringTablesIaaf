@@ -43,6 +43,8 @@ public class Result {
     /**
      * result
      */
+	@Column 
+	private String resultRepresentation;
 	@Column
     private double result;
     @Column
@@ -163,6 +165,14 @@ public class Result {
 
 	public void setPoints(long points) {
 		this.points = points;
+	}
+
+	public String getResultRepresentation() {
+		return resultRepresentation;
+	}
+
+	public void setResultRepresentation(String resultRepresentation) {
+		this.resultRepresentation = resultRepresentation;
 	}    
 	
 	

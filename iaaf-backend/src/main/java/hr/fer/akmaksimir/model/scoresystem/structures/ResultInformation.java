@@ -1,5 +1,6 @@
 package hr.fer.akmaksimir.model.scoresystem.structures;
 
+import hr.fer.akmaksimir.model.Athlete;
 import hr.fer.akmaksimir.model.Result;
 import hr.fer.akmaksimir.model.enumerations.AgeCategories;
 import hr.fer.akmaksimir.model.enumerations.Discipline;
@@ -31,8 +32,8 @@ public class ResultInformation {
      * getting its properties. 
      * @param result {@link Result}
      */
-    public ResultInformation(Result result) {
-        this(result.getAgeCategories(), result.getGender(), result.getDiscipline());
+    public ResultInformation(Result result, Athlete athlete) {
+        this(athlete.getAgeCategories(), athlete.getGender(), result.getDiscipline());
     }
 
     /**

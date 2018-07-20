@@ -73,7 +73,8 @@ export class CompetitionToolbarComponent implements OnInit {
               competitionId : this.competitionId,
               athleteId : 5,
               discipline : discipline,
-              measurement : measurment
+              measurement : measurment,
+              resultRepresentation : resultValue
 
     });
     

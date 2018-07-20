@@ -30,6 +30,12 @@ public class ResultController {
 	@CrossOrigin
 	@GetMapping("/add")
 	public void addNewResult(@RequestBody Result result) {
+		double value = 0;
+		String[] numbers = result.getResultRepresentation().split(":");
+		for(int i=0;i<numbers.length;++i) {
+			value = value * 60 + Double.parseDouble(numbers[i]);
+		}
+		result.setResult(value);
 		resultRepository.save(result);
 	}
 	
