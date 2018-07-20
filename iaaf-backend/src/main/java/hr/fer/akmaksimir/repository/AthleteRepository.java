@@ -12,4 +12,7 @@ public interface AthleteRepository extends CrudRepository<Athlete, Long>{
 	
 	@Query("SELECT a FROM Athlete a WHERE a.competitionId =:competitionId")
 	public Collection<Athlete> getWithCompetitionId(@Param("competitionId") long competitionId);
+
+	@Query("SELECT a FROM Athlete a WHERE a.competitionId =:competitionId AND a.bib = :bib")
+	public Athlete getWithCompetitionIdAndBib(@Param("competitionId") long competitionId, @Param("bib")  String bib);
 }

@@ -63,27 +63,34 @@ export class CompetitionToolbarComponent implements OnInit {
   }
 
   private addResult() : void {
-    let athleteId = (<HTMLInputElement>document.getElementById("athlete")).value;
+    let bib = (<HTMLInputElement>document.getElementById("athlete")).value;
+    
     let resultValue = (<HTMLInputElement>document.getElementById("result")).value;
     let discipline = (<HTMLInputElement>document.getElementById("discipline")).value;
     let measurment = (<HTMLInputElement>document.getElementById("measurment")).value;
-
-    let result : Result = <Result>({
-              id : 0,
-              competitionId : this.competitionId,
-              athleteId : 5,
-              discipline : discipline,
-              measurement : measurment,
-              resultRepresentation : resultValue
-
-    });
-    
-    this.restService.updateService(RestConstants.ADD_RESULT, result).subscribe(
-      (data) => {
-        this.showNewResult();
-        this.initResults();
-      },
-      (err) => alert("Dogodila se pogreška.\n")
+    //TODO get athleteID with bib and competitionId
+    this.restService.getUrlServiceWithParams(RestConstants.GET_ATHLETE_COMPID_AND_BIB, 
+                {competitionId : this.competitionId,
+                 bib : bib}).subscribe(
+            (next : Athlete) => {
+              let result : Result = <Result>({
+                id : 0,
+                competitionId : this.competitionId,
+                athleteId : next.id,
+                discipline : discipline,
+                measurement : measurment,
+                resultRepresentation : resultValue
+  
+              });
+      
+              this.restService.updateService(RestConstants.ADD_RESULT, result).subscribe(
+                (data) => {
+                  this.showNewResult();
+                  this.initResults();
+                },
+                (err) => alert("Dogodila se pogreška.\n")
+              );
+            }
     );
   }
   addAthlete() {
