@@ -34,5 +34,7 @@ public class Link {
 	public static final String result = "/api/result";
 	
 	public static final String athlete = "/api/athlete";
+	
+	public static final String user = "/api/user";
 
 }
