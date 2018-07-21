@@ -29,24 +29,9 @@ public enum Discipline {
      * long jump
      */
     LONG_JUMP("long_jump"),
-    /**
-     * disc, 0.75kg
-     */
-    DISC_075("disc075"),
-    /**
-     * disc, 1 kg
-     */
-    DISC_1("disc1"),
-    /**
-     * disc, 1.5 kg
-     */
-    DISC_15("disc15"),
-    /**
-     * disc, 2 kg
-     */
-    DISC_2("disc2");
-	
-	
+    
+    DISC("disc");
+    
     /**
      * name property
      */
