@@ -95,23 +95,29 @@ export class CompetitionToolbarComponent implements OnInit {
                 {competitionId : this.competitionId,
                  bib : bib}).subscribe(
             (next : Athlete) => {
-              let result : Result = <Result>({
-                id : 0,
-                competitionId : this.competitionId,
-                athleteId : next.id,
-                discipline : discipline,
-                measurement : measurment,
-                resultRepresentation : resultValue
-  
-              });
-      
-              this.restService.updateService(RestConstants.ADD_RESULT, result).subscribe(
-                (data) => {
-                  this.showNewResult();
-                  this.initResults();
-                },
-                (err) => alert("Dogodila se pogreška.\n")
-              );
+              if(next == null) {
+                alert("Ne postoji atletičar sa takvim starnim brojem.");
+              }
+              else {
+                let result : Result = <Result>({
+                  id : 0,
+                  competitionId : this.competitionId,
+                  athleteId : next.id,
+                  discipline : discipline,
+                  measurement : measurment,
+                  resultRepresentation : resultValue
+    
+                });
+        
+                this.restService.updateService(RestConstants.ADD_RESULT, result).subscribe(
+                  (data) => {
+                    alert("Dodan je rezultat.");
+                    this.showNewResult();
+                    this.initResults();
+                  },
+                  (err) => alert("Dogodila se pogreška.\n")
+                );
+              }
             }
     );
   }
@@ -176,7 +182,7 @@ export class CompetitionToolbarComponent implements OnInit {
       (next : Result[]) => {
         this.results = next;
         this.bibs = new Array(this.results.length);
-
+        this.results.reverse();
         for(let i=0;i<this.results.length;++i) 
         {
             this.restService.getUrlServiceWithParams(RestConstants.GET_ATHLETE_INFO, {id : this.results[i].athleteId}).subscribe(

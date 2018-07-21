@@ -95,6 +95,7 @@
         </table>
     </div>
     <div id="newResult" *ngIf="newResult">
+        <form (ngSubmit)="addResult();">
         <table>
             <tr>
                 <td colspan="3">
@@ -134,9 +135,12 @@
             </tr>
             <tr>
                 <td></td>
-                <td><button (click)="addResult();">Dodaj rezultat</button></td>
+                <td>
+                    <input type="submit" value="Dodaj rezultat"/>
+                </td>
             </tr>
         </table>
+        </form>
     </div>
     <br>
     <div *ngIf="editId != -1">
