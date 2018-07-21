@@ -1,8 +1,14 @@
-<div class="container">
+<div class="container" *ngIf="userId == competition.authorId">
+    
+    <h4>
+        {{competition.name}}
+    </h4>
+    
     <button (click)="showNewResult();">Dodaj rezultat</button><br>
     <button (click)="showNewAthlete();">Dodaj atletičara</button><br>
     <button (click)="showRegistedAthletes();">Popis atletičara</button><br>
     <button >Promijeni rezultate</button><br>
+    
     <div *ngIf="showAthletes">
         <table class="table">
             <tr>
@@ -132,6 +138,50 @@
             </tr>
         </table>
     </div>
+    <br>
+    <div *ngIf="editId != -1">
+        <h4>
+            Eidtiranje rezultata
+        </h4>
+        
+        <form (ngSubmit)="editResult(bibNumber, discipline, time);">
+            <table>
+                <tr>
+                    <td>
+                        Startni broj
+                    </td>
+                    <td>
+                        <input id="editBib" type="number" #bibNumber/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Disciplina      
+                    </td>
+                    <td>
+                        <select id="editDiscipline" #discipline>
+                                <option *ngFor="let discipline of disciplines">
+                                    {{discipline}}
+                                </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Vrijeme
+                    </td>
+                    <td>
+                        <input id="editTime" type="text" #time/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;">
+                        <input type="submit" value="Editiraj"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
     <br> 
     <h4>
         Zadnji 10 dodanih rezultata
@@ -144,18 +194,28 @@
             <td>Vrijeme</td>
             <td>Bodovi</td>
         </tr>
-        <tr *ngFor="let result of results; let i = index">
+        <tr *ngFor="let result of results; let i = index" [ngClass]="{'selected': editId == i}">
+            
             <td>
                 {{i+1}}.
             </td>
             <td>
-                {{result.resultRepresentation}}
+                {{bibs[i]}}
             </td>
             <td>
                 {{result.discipline}}
             </td>
             <td>
+                {{result.resultRepresentation}}
+            </td>
+            <td>
                 {{result.points}}
+            </td>
+            <td>
+                <button (click)="setEditId(i);">Edit</button>
+            </td>
+            <td>
+                <button (click)="deleteById(result.id);">Delete</button>
             </td>
         </tr>
     </table>

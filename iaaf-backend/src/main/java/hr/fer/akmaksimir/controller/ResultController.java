@@ -68,5 +68,10 @@ public class ResultController {
 		return resultRepository.getResultByCompetitionId(id);
 	}
 	
+	@CrossOrigin
+	@GetMapping("deleteResult")
+	public void deleteResult(@RequestParam long id) {
+		resultRepository.deleteById(id);
+	}
 	
 }

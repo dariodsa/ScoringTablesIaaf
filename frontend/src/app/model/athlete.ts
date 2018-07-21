@@ -7,5 +7,5 @@ export interface Athlete {
     club : String;
     gender : String;
     dateOfBirth : String;
-    bib : String;
+    bib : string;
 }

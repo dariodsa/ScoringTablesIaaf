@@ -45,7 +45,7 @@
             </td>
             <td>
                 <div *ngIf="userId == competition.authorId">
-                    <a href="/competition/{{i}}">{{competition.name}}</a>
+                    <a href="/competition/{{competition.id}}">{{competition.name}}</a>
                 </div>
                 <div *ngIf="userId != competition.authorId">
                         {{competition.name}}

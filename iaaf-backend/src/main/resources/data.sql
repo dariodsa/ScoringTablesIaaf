@@ -18,17 +18,17 @@ INSERT INTO Athlete (id, competitionId, lastName, firstName, gender, dateOfBirth
 INSERT INTO Competition (id, name, competitionType, authorId) VALUES
   (2, 'Drzavno', 'OUTDOOR', 0);
   
- INSERT INTO Result (id, athleteId, competitionId, result, points, discipline, typeOfMeasurment) VALUES
-  (0, 0, 0, 6.81, 781,'LONG_JUMP','NORMAL');
+ INSERT INTO Result (id, athleteId, competitionId, result, resultRepresentation, points, discipline, typeOfMeasurment) VALUES
+  (0, 0, 0, 6.81, '6.81', 781,'LONG_JUMP','NORMAL');
   
- INSERT INTO Result (id, athleteId, competitionId, result, points, discipline, typeOfMeasurment) VALUES
-  (1, 0, 0, 19.81, 231,'RUN_200M','NORMAL');
+ INSERT INTO Result (id, athleteId, competitionId, result, resultRepresentation, points, discipline, typeOfMeasurment) VALUES
+  (1, 0, 0, 19.81, '19.81', 231,'RUN_200M','NORMAL');
  
- INSERT INTO Result (id, athleteId, competitionId, result, points, discipline, typeOfMeasurment) VALUES
-  (2, 1, 0, 6.21, 481,'LONG_JUMP','NORMAL');
+ INSERT INTO Result (id, athleteId, competitionId, result, resultRepresentation, points, discipline, typeOfMeasurment) VALUES
+  (2, 1, 0, 6.21, '6.21', 481,'LONG_JUMP','NORMAL');
   
- INSERT INTO Result (id, athleteId, competitionId, result, points, discipline, typeOfMeasurment) VALUES
-  (3, 1, 0, 21.81, 181,'RUN_200M','NORMAL');
+ INSERT INTO Result (id, athleteId, competitionId, result, resultRepresentation, points, discipline, typeOfMeasurment) VALUES
+  (3, 1, 0, 21.81, '21.81', 181,'RUN_200M','NORMAL');
   
- INSERT INTO Result (id, athleteId, competitionId, result, points, discipline, typeOfMeasurment) VALUES
-  (4, 2, 0, 7.41, 1081,'LONG_JUMP','NORMAL');
+ INSERT INTO Result (id, athleteId, competitionId, result, resultRepresentation, points, discipline, typeOfMeasurment) VALUES
+  (4, 2, 0, 7.41 , '7.41', 1081,'LONG_JUMP','NORMAL');

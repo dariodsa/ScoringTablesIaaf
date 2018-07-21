@@ -9,6 +9,7 @@ import {Observable, Subject} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { Athlete } from '../model/athlete';
+import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -24,6 +25,8 @@ export class CompetitionToolbarComponent implements OnInit {
   author = "Dario Sindičić, AK Maksimir, 2018.";
 
   results : Array<Result> = [];
+  editId : number = -1;
+
 
   disciplines : Array<String> = [];
   measurments : Array<String> = [];
@@ -34,20 +37,39 @@ export class CompetitionToolbarComponent implements OnInit {
   newAthlete : boolean = false;
   showAthletes : boolean = false;
 
+  bibs : Array<string> = new Array();
   competitionId : number;
+ 
+  competition : Competition = <Competition>({
+      id : 0,
+      name : "",
+      authorId : -2,
+      competitionType : "s"
+  });
 
+  userId : number;
 
-    constructor(private restService : SimpleRestApiService, private route : ActivatedRoute) {
-      
-    }
+  constructor(private restService : SimpleRestApiService, private route : ActivatedRoute) {
+      this.userId = AppComponent.getUserId();
+  }
 
   ngOnInit() {
       this.route.params.subscribe((params : Params) => {
           this.competitionId = params['id'];
       });
-      this.initResults();
-      this.initMeasurment();
-      this.initDisciplines();
+      this.restService.getUrlService(RestConstants.GET_COMPETITION_INFO + "/" + this.competitionId).subscribe(
+         (next : Competition) => {
+            this.competition = next;
+            
+            if(this.competition.authorId != this.userId) return;
+            
+            this.initResults();
+            this.initMeasurment();
+            this.initDisciplines();
+          }
+      );
+      
+      
   }
 
   private showNewResult() : void {
@@ -153,6 +175,16 @@ export class CompetitionToolbarComponent implements OnInit {
     this.restService.getUrlServiceWithParams(RestConstants.GET_RESULTS, {id : this.competitionId}).subscribe(
       (next : Result[]) => {
         this.results = next;
+        this.bibs = new Array(this.results.length);
+
+        for(let i=0;i<this.results.length;++i) 
+        {
+            this.restService.getUrlServiceWithParams(RestConstants.GET_ATHLETE_INFO, {id : this.results[i].athleteId}).subscribe(
+               (_athlete : Athlete) => {
+                   this.bibs[i] = _athlete.bib;
+               }
+            );
+        }
       }
     );
   }
@@ -171,4 +203,30 @@ export class CompetitionToolbarComponent implements OnInit {
       }
     );
   }
+
+  private editResult( bib, discipline, time) : void {
+
+  }
+
+  private setEditId(id : number) : void {
+    this.editId = id;
+    
+    (<HTMLInputElement>document.getElementById("editTime")).value = this.results[id].resultRepresentation;
+    (<HTMLInputElement>document.getElementById("editDiscipline")).value = this.results[id].discipline;
+    (<HTMLInputElement>document.getElementById("editBib")).value = this.bibs[id];
+
+    console.log(document.getElementById("editTime"));
+  }
+
+  private deleteById(id : number) {
+    if(confirm("Jesi li siguran da želiš obrisati rezultat?")) {
+      this.restService.getUrlServiceWithParams(RestConstants.DELETE_RESULT, {id : id}).subscribe(
+          (data) => {
+            alert("Obrisano");
+            this.initResults();
+          }
+      );
+    }
+  }
+
 }
