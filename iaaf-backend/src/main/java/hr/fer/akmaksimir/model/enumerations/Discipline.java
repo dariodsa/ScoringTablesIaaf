@@ -16,6 +16,7 @@ public enum Discipline {
      * 200 meters
      */
     RUN_200M("200m"),
+    RUN_400M("400m"),
     /**
      * 1500 meters
      */
