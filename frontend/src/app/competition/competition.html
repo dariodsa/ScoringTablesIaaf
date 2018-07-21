@@ -144,14 +144,14 @@
             Eidtiranje rezultata
         </h4>
         
-        <form (ngSubmit)="editResult(bibNumber, discipline, time);">
+        <form (ngSubmit)="editResult();">
             <table>
                 <tr>
                     <td>
                         Startni broj
                     </td>
                     <td>
-                        <input id="editBib" type="number" #bibNumber/>
+                        <input id="editBib" type="number"/>
                     </td>
                 </tr>
                 <tr>
@@ -159,7 +159,7 @@
                         Disciplina      
                     </td>
                     <td>
-                        <select id="editDiscipline" #discipline>
+                        <select id="editDiscipline">
                                 <option *ngFor="let discipline of disciplines">
                                     {{discipline}}
                                 </option>
@@ -171,7 +171,7 @@
                         Vrijeme
                     </td>
                     <td>
-                        <input id="editTime" type="text" #time/>
+                        <input id="editTime" type="text"/>
                     </td>
                 </tr>
                 <tr>
@@ -212,10 +212,16 @@
                 {{result.points}}
             </td>
             <td>
-                <button (click)="setEditId(i);">Edit</button>
-            </td>
-            <td>
-                <button (click)="deleteById(result.id);">Delete</button>
+                <table>
+                    <tr>
+                        <td>
+                            <button (click)="setEditId(i);">Edit</button>
+                        </td>
+                        <td>
+                            <button (click)="deleteById(result.id);">Delete</button>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>

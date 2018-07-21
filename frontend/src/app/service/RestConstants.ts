@@ -23,6 +23,8 @@ export class RestConstants {
 	public static GET_ATHLETE_COMPID_AND_BIB : string = RestConstants.REST_API_PREFIX + "athlete/withCompetitionIdAndBib";
 	public static GET_ATHLETE_INFO : string = RestConstants.REST_API_PREFIX + "athlete/id";
 
-	public static DELETE_RESULT : string = RestConstants.REST_API_PREFIX + "result/deleteResult"
+	public static DELETE_RESULT : string = RestConstants.REST_API_PREFIX + "result/deleteResult";
+	
+	public static UPDATE_RESULT : string = RestConstants.REST_API_PREFIX + "result/updateResult";
 
 }

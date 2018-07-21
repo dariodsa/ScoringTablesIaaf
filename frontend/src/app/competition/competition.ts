@@ -204,7 +204,39 @@ export class CompetitionToolbarComponent implements OnInit {
     );
   }
 
-  private editResult( bib, discipline, time) : void {
+  private editResult() : void {
+
+
+    let time = (<HTMLInputElement>document.getElementById("editTime")).value;
+    let discipline = (<HTMLInputElement>document.getElementById("editDiscipline")).value;
+    let bib = (<HTMLInputElement>document.getElementById("editBib")).value;
+
+
+    this.restService.getUrlServiceWithParams(RestConstants.GET_ATHLETE_COMPID_AND_BIB,
+                                            {competitionId : this.competitionId,
+                                             bib : bib}).subscribe(
+                                               (next : Athlete) => {
+                                                 console.log("hjk");
+                                                 if(next == null) {
+                                                   //ERROR !!!!!!!!!!!!!!!!!!!
+                                                   alert("Pod time startnim brojem nitko nije registriran.");
+                                                 } else {
+                                                  console.log("hjk");
+                                                   this.restService.getUrlServiceWithParams(RestConstants.UPDATE_RESULT, 
+                                                          {id : this.results[this.editId].id,
+                                                           athleteId : next.id,
+                                                           resultRepresentation : time,
+                                                           discipline : discipline}).subscribe(
+                                                      (data) => {
+                                                        this.editId = -1;
+                                                        this.initResults();
+                                                        alert("Ažuriranje uspješno.");
+                                                      }
+                                                   );
+                                                  }
+                                               }
+                                             );
+
 
   }
 

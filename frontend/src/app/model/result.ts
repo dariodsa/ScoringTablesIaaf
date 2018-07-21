@@ -2,7 +2,7 @@ export interface Result {
     id : number;
     athleteId : number;
     competitionId : number;
-    result : string;   
+    result : number;   
     resultRepresentation : string;
     discipline : string;
     points : number;

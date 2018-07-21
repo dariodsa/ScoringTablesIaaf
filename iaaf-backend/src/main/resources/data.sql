@@ -16,7 +16,7 @@ INSERT INTO Athlete (id, competitionId, lastName, firstName, gender, dateOfBirth
   (2, 0, 'Marko', 'Masic', 'MALE', '1986-10-05', 'Ak Maksimir', 'Hrvatska', '255');
   
 INSERT INTO Competition (id, name, competitionType, authorId) VALUES
-  (2, 'Drzavno', 'OUTDOOR', 0);
+  (0, 'Drzavno', 'OUTDOOR', 0);
   
  INSERT INTO Result (id, athleteId, competitionId, result, resultRepresentation, points, discipline, typeOfMeasurment) VALUES
   (0, 0, 0, 6.81, '6.81', 781,'LONG_JUMP','NORMAL');
