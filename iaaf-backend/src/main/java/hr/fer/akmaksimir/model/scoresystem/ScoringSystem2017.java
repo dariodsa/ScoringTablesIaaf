@@ -78,9 +78,10 @@ public class ScoringSystem2017 implements ScoringSystem {
                             }
                         }
                     } catch (IOException e) {
-                        // e.printStackTrace();
+                        continue;
                     }
                     Collections.sort(pairs);
+                    System.out.println(ageCategories + " " + gender + " " + discipline);
                     resultsToPoints.put(new ResultInformation(ageCategories, gender, discipline), pairs);
 
                 }

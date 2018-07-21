@@ -54,7 +54,7 @@ public class Athlete {
 	@Column
 	private String bib;
 	
-	@Column
+	@Enumerated(EnumType.STRING)
 	@Nullable
 	private AgeCategories ageCategories;
 	

@@ -57,8 +57,8 @@ public class ResultController {
 
 		Athlete athlete = athleteRepository.findById(result.getAthleteId()).get();
 
-		//long points = system.getPoints(result, athlete);
-		result.setPoints(17);
+		long points = system.getPoints(result, athlete);
+		result.setPoints(points);
 
 		resultRepository.save(result);
 	}

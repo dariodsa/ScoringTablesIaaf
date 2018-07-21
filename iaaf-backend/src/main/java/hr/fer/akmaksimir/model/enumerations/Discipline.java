@@ -24,6 +24,7 @@ public enum Discipline {
      * 800 meters
      */
     RUN_800M("800m"),
+    HIGH_JUMP("high_jump"),
     /**
      * long jump
      */
