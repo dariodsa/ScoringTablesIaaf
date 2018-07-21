@@ -18,6 +18,7 @@ import { CompetitionsComponent } from './competitions/competitions';
 import { CompetitionToolbarComponent } from './competition/competition';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResultsComponent } from './results/results';
+import { Countries } from './model/countires';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { ResultsComponent } from './results/results';
     
     
   ],
-  providers: [ComponentInjectorService, SimpleRestApiService],
+  providers: [ComponentInjectorService, SimpleRestApiService, Countries],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

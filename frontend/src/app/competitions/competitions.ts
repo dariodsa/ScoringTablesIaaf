@@ -69,6 +69,13 @@ export class CompetitionsComponent implements OnInit {
     this.restService.getUrlService(RestConstants.GET_COMPETITIONS).subscribe(
       (next : Competition[]) => {
         this.competitions = next;
+        for(let i=0;i<this.competitions.length; ++i) {
+          if(this.competitions[i].competitionType == "OUTDOOR") {
+            this.competitions[i].competitionType = "Vanjsko";
+          } else {
+            this.competitions[i].competitionType = "Unutarnje";
+          }
+        }
       }
     );
   }

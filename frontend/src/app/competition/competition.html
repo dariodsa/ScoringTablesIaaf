@@ -78,7 +78,10 @@
             <tr>
                 <td>Država:</td>
                 <td>
-                    <input type="text" id="country" placeholder="Hrvatska"/>
+                    <select id="country">
+                        <option value="hr">Hrvatska</option>
+                        <option *ngFor="let country of countries" value="country.Code">{{country.Name}}</option>
+                    </select>
                 </td>
             </tr>
             

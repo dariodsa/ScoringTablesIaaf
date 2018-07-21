@@ -10,6 +10,7 @@ import {map, startWith} from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { Athlete } from '../model/athlete';
 import { AppComponent } from '../app.component';
+import { Countries } from '../model/countires';
 
 
 @Component({
@@ -48,9 +49,12 @@ export class CompetitionToolbarComponent implements OnInit {
   });
 
   userId : number;
+  countries : any;
+
 
   constructor(private restService : SimpleRestApiService, private route : ActivatedRoute) {
       this.userId = AppComponent.getUserId();
+      this.countries = Countries.list;
   }
 
   ngOnInit() {

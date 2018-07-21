@@ -1,10 +1,10 @@
 <table class="table">
     <tr>
         <td>Redni broj</td>
+        <td></td>
         <td>Ime i Prezime</td>
         <td>Kategorija</td>
         <td>Klub</td>
-        <td>Država</td>
         <td *ngFor="let discipline of disciplines">
             {{discipline}}
         </td>
@@ -12,10 +12,10 @@
     </tr>
     <tr *ngFor="let result of results; let i = index">
         <td>{{i+1}}.</td>
+        <td><img src="assets/images/flags/{{result.user.country}}.png"></td>
         <td>{{result.user.firstName}}&nbsp;{{result.user.lastName}}</td>
         <td>M30</td>
         <td>{{result.user.club}}</td>
-        <td>{{result.user.country}}</td>
         <td *ngFor="let point of result.points">
             {{point}}
         </td>
