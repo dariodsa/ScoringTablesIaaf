@@ -139,7 +139,7 @@ export class CompetitionToolbarComponent implements OnInit {
 
   private getAthletes() : void {
     let array : Array<Athlete> = [];
-    this.restService.getUrlServiceWithParams(RestConstants.GET_ATHLETE_COMP, {competitionId : this.competitionId}).subscribe(
+    this.restService.getUrlServiceWithParams(RestConstants.GET_ATHLETES_COMP, {competitionId : this.competitionId}).subscribe(
       (next : Athlete[]) => {
         this.athletes = next;
       }

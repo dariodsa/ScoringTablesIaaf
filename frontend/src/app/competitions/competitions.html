@@ -1,5 +1,5 @@
 <div class="component">
-    <button (click)="showNewCompetition();">Dodaj natjecanje</button>
+    <button *ngIf="ableToAddCompetition" (click)="showNewCompetition();">Dodaj natjecanje</button>
     <div id="newCompetition" *ngIf="newCompetition">
         <table>
             <tr>
@@ -44,7 +44,12 @@
                 {{i+1}}.
             </td>
             <td>
-                <a href="/competition/{{i}}">{{competition.name}}</a>
+                <div *ngIf="userId == competition.authorId">
+                    <a href="/competition/{{i}}">{{competition.name}}</a>
+                </div>
+                <div *ngIf="userId != competition.authorId">
+                        {{competition.name}}
+                </div>
             </td>
             <td>
                 {{competition.competitionType}}

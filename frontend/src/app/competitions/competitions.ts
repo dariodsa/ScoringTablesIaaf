@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SimpleRestApiService } from '../service/simple-rest-api-service';
 import { Competition } from '../model/competition';
 import { RestConstants } from '../service/RestConstants';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'competitions',
@@ -16,25 +17,40 @@ export class CompetitionsComponent implements OnInit {
   
   newCompetition : boolean = false;
 
+  ableToAddCompetition : boolean = false;
+  userId : number;
+
   constructor(private restService : SimpleRestApiService) {
     
      this.initCompetitions();
+     this.userId = AppComponent.getUserId();
+
+     if(this.userId != -1) {
+       this.ableToAddCompetition = true;
+     }
   }
 
 
   ngOnInit() {}
 
   private showNewCompetition() : void {
+    if(this.userId == -1) {
+      this.newCompetition = false;
+      return;
+    }
     this.newCompetition = !this.newCompetition;
   }
 
   private addCompetition() : void {
+    if(this.userId == -1) return;
+
     let competitionName = (<HTMLInputElement>document.getElementById("competitionName")).value;
     let competitionType = (<HTMLInputElement>document.getElementById("competitionType")).value;
     let competition : Competition = <Competition>({
               id : 0,
               name : competitionName,
-              competitionType : competitionType
+              competitionType : competitionType,
+              authorId : AppComponent.getUserId()
     });
 
     this.restService.updateService(RestConstants.ADD_COMPETITION, competition).subscribe(

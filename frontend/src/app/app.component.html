@@ -16,21 +16,24 @@
     <td style="width:25%"></td>
     <td>
       <div *ngIf="loginIn == false">
-        <table class="login-form">
-          <tr>
-            <td>
-              <input type="text" id="username" placeholder="korisničko ime"/>
-            </td>
-            <td>
-                <input type="password" id="password" placeholder="lozinka"/>
-            </td>
-            <td>
-              <button class="login-button" (click)="login();">Prijava</button>
-            </td>
-          </tr>
+        <form (ngSubmit)="login();">
+          <table class="login-form">
+            <tr>
+              
+                <td>
+                  <input type="text" id="username" placeholder="korisničko ime"/>
+                </td>
+                <td>
+                    <input type="password" id="password" placeholder="lozinka"/>
+                </td>
+                <td>
+                  <input class="login-button" value="Prijava" type="submit"/>
+                </td>
+            </tr>
         </table>
-      </div>
-      <div ng-if="loginIn == true">
+      </form>
+    </div>
+    <div *ngIf="loginIn == true">
         Bok {{username}}!
         <button (click)="logout();">Odjava</button>
       </div>

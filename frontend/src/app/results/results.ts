@@ -5,7 +5,6 @@ import { RestConstants } from '../service/RestConstants';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Result } from '../model/result';
 import { Athlete } from '../model/athlete';
-import { userInfo } from 'os';
 
 @Component({
   selector: 'results',
