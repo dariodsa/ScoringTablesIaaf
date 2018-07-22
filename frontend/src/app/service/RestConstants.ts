@@ -24,6 +24,7 @@ export class RestConstants {
 	public static GET_ATHLETE_INFO : string = RestConstants.REST_API_PREFIX + "athlete/id";
 
 	public static DELETE_RESULT : string = RestConstants.REST_API_PREFIX + "result/deleteResult";
+	public static DELETE_COMPETITION : string = RestConstants.REST_API_PREFIX + "competitions/deleteById";
 	
 	public static UPDATE_RESULT : string = RestConstants.REST_API_PREFIX + "result/updateResult";
 

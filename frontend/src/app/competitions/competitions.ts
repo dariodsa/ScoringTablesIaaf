@@ -73,10 +73,23 @@ export class CompetitionsComponent implements OnInit {
           if(this.competitions[i].competitionType == "OUTDOOR") {
             this.competitions[i].competitionType = "Vanjsko";
           } else {
-            this.competitions[i].competitionType = "Unutarnje";
+            this.competitions[i].competitionType = "Dvoransko";
           }
         }
       }
     );
+  }
+  private deleteCompetition(id : number) : void {
+    if(confirm("Jeste li sigurni da želite obrisati natjecanje?")) {
+      this.restService.getUrlServiceWithParams(RestConstants.DELETE_COMPETITION, {id : id}).subscribe(
+        (data) => {
+          alert("Natjecanje je obrisano.");
+          this.initCompetitions();
+        },
+        (err) => {
+          alert("Dogodila se pogreška.");
+        }
+      );
+    }
   }
 }
