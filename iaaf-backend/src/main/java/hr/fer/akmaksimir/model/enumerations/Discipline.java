@@ -30,6 +30,7 @@ public enum Discipline {
      * long jump
      */
     LONG_JUMP("long_jump"),
+    SHOT_PUT("shot_put"),
     
     DISC("disc");
     
