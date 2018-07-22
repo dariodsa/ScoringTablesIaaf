@@ -16,6 +16,9 @@ public enum Discipline {
      * 200 meters
      */
     RUN_200M("200m"),
+    /**
+     * 400 meters
+     */
     RUN_400M("400m"),
     /**
      * 1500 meters
@@ -25,14 +28,31 @@ public enum Discipline {
      * 800 meters
      */
     RUN_800M("800m"),
+    /**
+     * high jump
+     */
     HIGH_JUMP("high_jump"),
     /**
      * long jump
      */
     LONG_JUMP("long_jump"),
+    /**
+     * shot put
+     */
     SHOT_PUT("shot_put"),
-    
-    DISC("disc");
+    /**
+     * disc
+     */
+    DISC("disc"),
+    /**
+     * hurdles 
+     */
+    HURDLES("hurdles"),
+    /**
+     * javelin throw
+     */
+    JAVELIN_THROW("javelin_throw");
+	
     
     /**
      * name property

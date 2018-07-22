@@ -41,8 +41,8 @@ public class Athlete {
 	private Date dateOfBirth;
 	
 	@Column
-	@Size(min=3, max = 25)
 	private String country;
+	
 	@Column
 	@Size(min=3, max = 25)
 	private String club;
@@ -62,7 +62,7 @@ public class Athlete {
 	}
 
 	public Athlete(long id, @Size(min = 3, max = 25) String firstName, @Size(min = 3, max = 25) String lastName,
-			Date dateOfBirth, @Size(min = 3, max = 25) String country, @Size(min = 3, max = 25) String club,
+			Date dateOfBirth, String country, String club,
 			Gender gender, long competitionId, String bib) {
 		this.id = id;
 		this.firstName = firstName;

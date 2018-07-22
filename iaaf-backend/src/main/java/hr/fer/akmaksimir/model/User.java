@@ -20,6 +20,7 @@ public class User {
 	private String username;
 	
 	@Column
+	@Size(min = 3, max = 100)
 	private String passwordHash;
 
 	public User() {

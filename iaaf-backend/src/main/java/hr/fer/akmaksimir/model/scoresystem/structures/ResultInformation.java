@@ -15,7 +15,7 @@ import hr.fer.akmaksimir.model.enumerations.Gender;
 public class ResultInformation {
     
     /**
-     * age categotires
+     * age categories
      */
     private AgeCategories ageCategories;
     /**

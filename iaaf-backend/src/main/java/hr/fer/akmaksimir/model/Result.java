@@ -7,7 +7,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import hr.fer.akmaksimir.model.enumerations.AgeCategories;
@@ -40,26 +39,20 @@ public class Result {
 	@Column
 	private long competitionId;
 	
-    /**
-     * result
-     */
 	@Column 
 	private String resultRepresentation;
+	
 	@Column
     private double result;
-    @Column
+    
+	@Column
     private long points;
-    /**
-     * discipline
-     */
+    
 	@Enumerated(EnumType.STRING)
     private Discipline discipline;
-    /**
-     * type of measurement
-     */
+    
 	@Enumerated(EnumType.STRING)
     private Measurement typeOfMeasurment;
-	
 	
 
 	public Result() {

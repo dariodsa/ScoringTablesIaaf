@@ -1,6 +1,5 @@
 package hr.fer.akmaksimir.controller;
 
-import org.junit.BeforeClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,10 +11,6 @@ import hr.fer.akmaksimir.Link;
 import hr.fer.akmaksimir.model.Athlete;
 import hr.fer.akmaksimir.model.Result;
 import hr.fer.akmaksimir.model.ScoringSystem;
-import hr.fer.akmaksimir.model.enumerations.AgeCategories;
-import hr.fer.akmaksimir.model.enumerations.Discipline;
-import hr.fer.akmaksimir.model.enumerations.Gender;
-import hr.fer.akmaksimir.model.enumerations.Measurement;
 import hr.fer.akmaksimir.model.scoresystem.ScoringSystem2017;
 import hr.fer.akmaksimir.repository.AthleteRepository;
 

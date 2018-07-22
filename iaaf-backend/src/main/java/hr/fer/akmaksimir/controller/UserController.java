@@ -1,8 +1,5 @@
 package hr.fer.akmaksimir.controller;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import hr.fer.akmaksimir.Link;
 import hr.fer.akmaksimir.model.User;
 import hr.fer.akmaksimir.repository.UserRepository;

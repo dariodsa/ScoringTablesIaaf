@@ -1,7 +1,6 @@
 package hr.fer.akmaksimir.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +9,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import hr.fer.akmaksimir.model.enumerations.CompetitionType;
@@ -28,7 +26,6 @@ public class Competition implements Serializable{
     
     private static final long serialVersionUID = 8526857412212324481L;
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -38,6 +35,7 @@ public class Competition implements Serializable{
     
 	@Enumerated(EnumType.STRING)
 	private CompetitionType competitionType;
+	
 	@Column
 	private long authorId; 
     
@@ -75,7 +73,7 @@ public class Competition implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-
+    
 	public CompetitionType getCompetitionType() {
 		return competitionType;
 	}
