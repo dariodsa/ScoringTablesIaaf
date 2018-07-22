@@ -74,11 +74,12 @@ export class CompetitionsComponent implements OnInit {
             this.competitions[i].competitionType = "Vanjsko";
           } else {
             this.competitions[i].competitionType = "Dvoransko";
-          }
+          }  
         }
       }
     );
   }
+  
   private deleteCompetition(id : number) : void {
     if(confirm("Jeste li sigurni da želite obrisati natjecanje?")) {
       this.restService.getUrlServiceWithParams(RestConstants.DELETE_COMPETITION, {id : id}).subscribe(
