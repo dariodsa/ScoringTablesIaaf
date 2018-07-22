@@ -23,8 +23,8 @@
     </div>
     <br> 
     <br>
-    <h4>Natjecanja</h4>
-    <table class="table">
+    <h3>Natjecanja</h3>
+    <table class="table" border="1">
         <tr>
             <td>
                 Redni broj
@@ -57,10 +57,9 @@
             <td>
                 <a href="/results/{{i}}">Rezultati</a>
             </td>
-            <td>
-                <div *ngIf="userId == competition.authorId">
-                    <button (click)="deleteCompetition(competition.id);">Delete</button>
-                </div>
+            <td *ngIf="userId == competition.authorId">
+                <!--<button (click)="deleteCompetition(competition.id);">Delete</button>-->
+                <img src="assets/images/trash.png" height="40" width="40" (click)="deleteCompetition(competition.id);"/>
             </td>
         </tr>
     </table>

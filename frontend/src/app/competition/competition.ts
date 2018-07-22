@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { SimpleRestApiService } from '../service/simple-rest-api-service';
 import { Competition } from '../model/competition';
 import { RestConstants } from '../service/RestConstants';
@@ -51,12 +51,10 @@ export class CompetitionToolbarComponent implements OnInit {
   userId : number;
   countries : any;
 
-
   constructor(private restService : SimpleRestApiService, private route : ActivatedRoute) {
       this.userId = AppComponent.getUserId();
       this.countries = Countries.list;
   }
-
   ngOnInit() {
       this.route.params.subscribe((params : Params) => {
           this.competitionId = params['id'];
@@ -250,17 +248,11 @@ export class CompetitionToolbarComponent implements OnInit {
 
   }
 
-  private setEditId(id : number) : void {
+  setEditId(id : number) {
     this.editId = id;
-    
-    (<HTMLInputElement>document.getElementById("editTime")).value = this.results[id].resultRepresentation;
-    (<HTMLInputElement>document.getElementById("editDiscipline")).value = this.results[id].discipline;
-    (<HTMLInputElement>document.getElementById("editBib")).value = this.bibs[id];
-
-    console.log(document.getElementById("editTime"));
   }
 
-  private deleteById(id : number) {
+  deleteById(id : number) {
     if(confirm("Jesi li siguran da želiš obrisati rezultat?")) {
       this.restService.getUrlServiceWithParams(RestConstants.DELETE_RESULT, {id : id}).subscribe(
           (data) => {
