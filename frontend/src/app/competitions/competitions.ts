@@ -79,6 +79,7 @@ export class CompetitionsComponent implements OnInit {
       }
     );
   }
+     
   
   private deleteCompetition(id : number) : void {
     if(confirm("Jeste li sigurni da želite obrisati natjecanje?")) {

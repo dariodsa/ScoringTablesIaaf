@@ -158,7 +158,7 @@
                         Startni broj
                     </td>
                     <td>
-                        <input id="editBib" type="number"/>
+                        <input id="editBib" type="number" #bibNumber/>
                     </td>
                 </tr>
                 <tr>
@@ -166,7 +166,7 @@
                         Disciplina      
                     </td>
                     <td>
-                        <select id="editDiscipline">
+                        <select id="editDiscipline" #discipline>
                                 <option *ngFor="let discipline of disciplines">
                                     {{discipline}}
                                 </option>
@@ -195,11 +195,12 @@
     </h4>
     <table class="table">
         <tr>
-            <td>Redni broj</td>
-            <td>Startni broj</td>
-            <td>Disciplina</td>
-            <td>Vrijeme</td>
-            <td>Bodovi</td>
+            <th>Redni broj</th>
+            <th>Startni broj</th>
+            <th>Disciplina</th>
+            <th>Vrijeme</th>
+            <th>Bodovi</th>
+            <th></th>
         </tr>
         <tr *ngFor="let result of results; let i = index" [ngClass]="{'selected': editId == i}">
             
@@ -219,16 +220,8 @@
                 {{result.points}}
             </td>
             <td>
-                <table>
-                    <tr>
-                        <td>
-                            <button (click)="setEditId(i);">Edit</button>
-                        </td>
-                        <td>
-                            <button (click)="deleteById(result.id);">Delete</button>
-                        </td>
-                    </tr>
-                </table>
+                <img class="image" src="assets/images/edit.png" (click)="setEditId(i)"/>
+                <img class="image" src="assets/images/trash.png" (click)="deleteById(result.id);"/>
             </td>
         </tr>
     </table>
