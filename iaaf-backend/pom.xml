@@ -82,12 +82,12 @@
 		    <version>5.2.3.Final</version>
 		</dependency>
 
-        <!-- <dependency>
+         <dependency>
             <groupId>hr.fer.opp.project</groupId>
             <artifactId>frontend</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
-        </dependency>-->
+        </dependency>
 
         <dependency>
             <groupId>commons-codec</groupId>
