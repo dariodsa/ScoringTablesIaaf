@@ -85,8 +85,6 @@ public class AthleteController {
 			athlete.setAgeCategories(AgeCategories.A85);
 		} else if(age < 95) {
 			athlete.setAgeCategories(AgeCategories.A90);
-		} else if(age < 100) {
-			athlete.setAgeCategories(AgeCategories.A95);
 		}
 		
 		athleteRepository.save(athlete);
