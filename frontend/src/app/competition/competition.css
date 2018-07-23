@@ -4,9 +4,22 @@
     width: -moz-available;
 }
 .table{
-    width: -moz-available;
+    width: 94%;
     text-align: center;
+    background-color: #eee8f3;
+    margin-left: 80px;
 }
+table.table{
+    border: 1px solid #ddd;
+}
+
+tr:hover {background-color:#e0d7a3;}
+
+
 .selected {
     background-color: lightcoral;
+}
+img.image{
+    width: 40px;
+    height: 40px;
 }
