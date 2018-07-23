@@ -62,10 +62,14 @@ public class ScoringSystem2017 implements ScoringSystem {
 
                     try {
                         List<String> lines = Files.readAllLines(scoringPath);
+                        int numOfLine = 1;
                         for (String line : lines) {
-                            String[] sep = line.split(" ");
-                            if (sep.length % 2 != 0)
-                                throw new RuntimeException("Wrong file structure " + scoringPath.toString());
+                        	if(line.length() == 0) continue;
+                            String[] sep = line.split(" +");
+                            if (sep.length % 2 != 0) {
+                            	
+                                throw new RuntimeException("Wrong file structure " + scoringPath.toString() + " " + numOfLine);
+                            }
                             for (int i = 0; i < sep.length; i += 2) {
                                 double value = 0;
                             	String[] values = sep[i].split(":");
@@ -76,13 +80,15 @@ public class ScoringSystem2017 implements ScoringSystem {
                                 long points = Long.parseLong(sep[i + 1]);
                                 pairs.add(new Pair(value, points));
                             }
+                            ++numOfLine;
                         }
                     } catch (IOException e) {
-                        continue;
+                    	System.out.println(ageCategories + " " + gender + " " + discipline);
+                    	continue;
                     }
                     Collections.sort(pairs);
                     
-                    System.out.println(ageCategories + " " + gender + " " + discipline);
+                    
                     resultsToPoints.put(new ResultInformation(ageCategories, gender, discipline), pairs);
 
                 }

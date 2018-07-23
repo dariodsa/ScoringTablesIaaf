@@ -28,6 +28,7 @@ public enum Discipline {
      * 800 meters
      */
     RUN_800M("800m"),
+    RUN_1000M("1000m"),
     /**
      * high jump
      */
@@ -47,7 +48,11 @@ public enum Discipline {
     /**
      * hurdles 
      */
-    HURDLES("hurdles"),
+    HURDLES_100m("100m_hurdles"),
+    HURDLES_60m("60m_hurdles"),
+    WEIGHT_THROW("weight_throw"),
+    POLE_VAULT("pole_vault"),
+    HAMMER_THROW("hammer_throw"),
     /**
      * javelin throw
      */

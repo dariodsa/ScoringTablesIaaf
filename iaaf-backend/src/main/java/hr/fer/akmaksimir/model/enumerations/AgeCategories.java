@@ -58,11 +58,7 @@ public enum AgeCategories {
     /**
      * age category below 90
      */
-    A90("90"),
-    /**
-     * age category below 95
-     */
-    A95("95");
+    A90("90");
     
     /**
      * name property
